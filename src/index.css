@@ -4,29 +4,22 @@ body {
 	font-family: sans-serif;
 }
 
-.pearson-users > h1 {
+/* Following BEM naming */
+.pearson-users__heading {
 	color: #007FA3;
 	font-size: 36px;
+	font-weight: normal;
 	padding: 10px 50px;
 }
 
-.pearson-users .user-list {
+.pearson-users__list {
 	background-color: #D8D8D8;
 	padding: 50px;
 	display: flex;
 	flex-wrap: wrap;
 }
 
-.pearson-users .user-avatar {
-	border-radius: 50%;
-	width: 80px;
-	position: absolute;
-	top: -40px;
-    left: 50%;
-    margin-left: -40px;
-}
-
-.pearson-users .user-profile {
+.pearson-users__user {
 	position: relative;
 	background-color: #FFFFFF;
 	width: 212px;
@@ -35,16 +28,35 @@ body {
 	padding-top: 40px;
 }
 
-.pearson-users .user-name {
+.pearson-users__user__avatar {
+	border-radius: 50%;
+	width: 80px;
+	position: absolute;
+	top: -40px;
+	left: 50%;
+	margin-left: -40px;
+}
+
+.pearson-users__user__name {
 	color: #E93939;
 	font-size: 18px;
 }
 
-.pearson-users .user-delete-btn {
+.pearson-users__user__delete-btn {
 	color: #007FA3;
 	font-size: 14px;
 	border: none;
 	cursor: pointer;
 	display: block;
-    margin: 5px;
+	margin: 5px;
+}
+
+.pearson-users__user__delete-btn:hover {
+	color: #063b4a;
+}
+
+.pearson-users__loading {
+	text-align: center;
+	padding-bottom: 30px;
+	background-color: #D8D8D8;
 }

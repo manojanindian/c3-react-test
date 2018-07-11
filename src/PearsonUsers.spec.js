@@ -47,21 +47,33 @@ describe("PearsonUsers", () => {
 		
 	});
 
-	it("component has title", () => {
-		const h1 = component.find("h1.title");
-    	expect(h1.text()).toEqual("Pearson User Management");
+	it("component should be defined", () => {
+		expect(component).toBeDefined();
+	});
+
+	it("component has heading", () => {
+		const heading = component.find(".pearson-users__heading");
+		expect(heading.text()).toEqual("Pearson User Management");
 	});
 
 	/**
-	 * UserProfile componet must containe following theree elements
+	 * UserProfile componet must containe following three elements
 	 * User avatar, user name and delete button
 	 */
 	  
-	it("User Profile has avatar, name and delete button", () => {
+	it("User Profile has user avatar", () => {
 		const userProfileComponent = component.find('UserProfile').first().dive();
-		expect(userProfileComponent.find('.user-avatar').length).toBe(1);
-		expect(userProfileComponent.find('.user-name').length).toBe(1);
-		expect(userProfileComponent.find('.user-delete-btn').length).toBe(1);
+		expect(userProfileComponent.find('.pearson-users__user__avatar').length).toBe(1);
+	});
+
+	it("User Profile has user name", () => {
+		const userProfileComponent = component.find('UserProfile').first().dive();
+		expect(userProfileComponent.find('.pearson-users__user__name').length).toBe(1);
+	});
+
+	it("User Profile has delete btn", () => {
+		const userProfileComponent = component.find('UserProfile').first().dive();
+		expect(userProfileComponent.find('.pearson-users__user__delete-btn').length).toBe(1);
 	});
 
 	it("fetch should be called", () => {
@@ -91,7 +103,11 @@ describe("PearsonUsers", () => {
 	
 	it("delete user onclick of delete button", () => {
 		const userProfileComponent = component.find('UserProfile').first().dive();
-		userProfileComponent.find('.user-delete-btn').simulate('click');
+		userProfileComponent.find('.pearson-users__user__delete-btn').simulate('click');
 		expect(component.state().users.length).toBe(4);
 	});
+
+	it("component should render correctly", () => {
+		expect(component).toMatchSnapshot();
+	})
 });
